@@ -1,0 +1,170 @@
+main{
+  display: flex;
+  flex-direction: row;
+  justify-items: center; 
+ padding: 50px;
+  
+  
+  
+   
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;    
+  background-color: white;
+}
+
+.container .top {
+  position: absolute;
+}
+
+.container .form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container .form .countdown {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.container .form .countdown h1 {
+  color: var(--purple);
+  font-size: 60px;
+}
+
+.container .form .countdown .sign {
+  width: 30%;
+  height: 40px;
+  background-color: var(--purple);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.container .form .countdown table {
+  width: 80%;
+}
+
+.container .form .countdown table thead tr th {
+  color: var(--text-color);
+  font-size: 10px;
+}
+
+.container .form .countdown table tbody tr td {
+  font-size: 60px;
+}
+
+.container .form .rocket img {
+  width: 100%;
+}
+
+.modal-container.active {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.modal-container.active .container-form {
+  width: 40%;
+  height: 40%;
+  background-color: white;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: 8px;
+}
+
+.modal-container.active .container-form h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: normal;
+  color: var(--purple);
+}
+
+.modal-container.active .container-form form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.modal-container.active .container-form form p {
+  padding: 20px;
+  width: 100%;
+}
+
+.modal-container.active .container-form form .name-input, .email-input {
+  height: 30px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  padding: 5px;
+  transition: all 200ms ease;
+}
+
+.modal-container.active .container-form form .name-input:focus {
+  border-left: 5px solid var(--purple);
+}
+
+.modal-container.active .container-form form .email-input:focus {
+  border-left: 5px solid var(--purple);
+}
+
+.modal-container.active .container-form .btns {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.modal-container.active .container-form .btns .btn-send {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  background-color: green;
+  color: white;
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 200ms ease;
+}
+
+.modal-container.active .container-form .btns .btn-send:hover {
+  opacity: 0.9;
+}
+
+.modal-container.active .container-form .btns .btn-cancel {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  background-color: white;
+  border: 2px solid red;
+  color: black;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 200ms ease;
+}
+
+.modal-container.active .container-form .btns .btn-cancel:hover {
+  background-color: red;
+  color: white;
+}

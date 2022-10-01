@@ -1,92 +1,69 @@
-// declaração da constante e lados e altura ,max
-const canvas = document.getElementById('canvas1');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-//a cor de acordo com  a posição que ele segui 
-let gradient = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 100, canvas.width/2, canvas.height/2, canvas.width/2); // ctx.createLinearGradient(0, canvas.width, canvas.height, 0);
-gradient.addColorStop(0, 'pink');//1 cor
-gradient.addColorStop(0.5, 'blue');//2 cor
-gradient.addColorStop(1, 'red');//3 cor
-
-//as caracteristicas das letras e seus eixos 
-class Symbol {
-    constructor (x, y, fontSize, canvasHeight) {
-        this.characters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        this.x = x;
-        this.y = y;
-        this.fontSize = fontSize;
-        this.text = '';
-        this.canvasHeight = canvasHeight
-    }
-    draw(context) {
-        this.text = this.characters.charAt(Math.floor(Math.random() * this.characters.length));
-        context.fillText(this.text, this.x * this.fontSize, this.y * this.fontSize);
-        if (this.y * this.fontSize > this.canvasHeight && Math.random() > 0.98) {
-            this.y =0;
-        } else {
-            this.y +=1;
-        }
-    }
-}
-//tamanho da letra,altura,largura
-class Effect {
-    constructor(canvasWidth, canvasHeight) {
-        this.canvasWidth = canvasWidth;
-        this.canvasHeight = canvasHeight;
-        this.fontSize = 15;
-        this.columns = this.canvasWidth/this.fontSize;
-        this.symbols = [];
-        this.#initialize();
-        console.log(this.symbols);    
-    }
-    #initialize() {
-        for (let i = 0; i < this.columns; i++) {
-            this.symbols[i] = new Symbol(i, 0, this.fontSize, this.canvasHeight);
-        }
-    }
-    resize(width, height) {
-        this.canvasWidth = width;
-        this.canvasHeight = height;
-        this.columns = this.canvasWidth/this.fontSize;
-        this.symbols = [];
-        this.#initialize();
+const openModal = {
+    open() {
+        document.querySelector(".modal-container").classList.add('active')
+    },
+    close() {
+        document.querySelector(".modal-container").classList.remove('active')
+    },
+    send() {
+        checkValuesInputs();
     }
 }
 
-const effect = new Effect(canvas.width, canvas.height);
-let lasTime = 10;
-const fps = 90;// velocidade
-const nextFrame = 1000/fps;
-let timer = 5;
+function checkValuesInputs() {
+    inputName = document.querySelector('.name-input')
+    inputEmail = document.querySelector('.email-input')
 
-function animate(timeStamp) {
-    const deltaTime = timeStamp - lasTime;
-    lasTime = timeStamp;
-    if (timer > nextFrame) {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.09)';//frequencia de letras ao cai, velocidade
-        ctx.textAlign = 'center';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = gradient; //'#0aff0a';
-        ctx.font = effect.fontSize + 'px monospace';
-        effect.symbols.forEach(symbol => symbol.draw(ctx));
-        timer = 0;
+    const Name = inputName.value;
+    const Email = inputEmail.value;
+
+    if (Name == '' || Email == '') {
+        alert('Preencha todos os dados antes')
     } else {
-        timer += deltaTime;
+        alert(`Obrigado ${Name}, avisaremos quando o foguete for lançado`)
+        document.querySelector(".modal-container").classList.remove('active')
     }
-
-    requestAnimationFrame(animate);
 }
 
-animate(0);
+const formatZero = (digito) => `0${digito}`.slice(-2);
 
-window.addEventListener('resize', function() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    effect.resize(canvas.width, canvas.height);
-    gradient = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 100, canvas.width/2, canvas.height/2, canvas.width/2); // ctx.createLinearGradient(0, canvas.width, canvas.height, 0);
-    gradient.addColorStop(0, 'red');
-    gradient.addColorStop(0.5, 'white');
-    gradient.addColorStop(1, 'blue');
-});
+const load = (time) => {
+    const seconds = document.querySelector('#seconds');
+    const minutes = document.querySelector('#minutes');
+    const hours = document.querySelector('#hours');
+    const days = document.querySelector('#days');
+
+    const quantitySeconds = time % 60;
+    const quantityMinutes = Math.floor((time % (60 * 60)) / 60);
+    const quantityHours = Math.floor((time % (60 * 60 * 24)) / (60 * 60));
+    const quantityDays = Math.floor(time / (60 * 60 * 24));
+
+    seconds.textContent = formatZero(quantitySeconds);
+    minutes.textContent = formatZero(quantityMinutes);
+    hours.textContent = formatZero(quantityHours);
+    days.textContent = formatZero(quantityDays);
+}
+
+const countDown = (time) => {
+    const stopCounting = () => clearInterval(id);
+
+    const count = () => {
+        if (time === 0) {
+            stopCounting();
+        }
+        load(time);
+        time--;
+    }
+
+    // a cada segundo ele executa um callback
+    const id = setInterval(count, 1000);
+}
+
+const restTime = () => {
+    const eventDate = new Date ('2021-1-09 20:22:00');
+    const today = Date.now();
+    return Math.floor((eventDate - today) / 1000);
+}
+
+countDown(restTime());
