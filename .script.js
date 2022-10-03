@@ -148,3 +148,8 @@ const restTime = () => {
 }
 
 countDown(restTime());
+
+
+for(let i = -5 ; i<=7 ; i *=3){
+    console.log(i)
+}
