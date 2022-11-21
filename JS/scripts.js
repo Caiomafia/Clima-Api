@@ -1,5 +1,7 @@
 //57ca3a94d4be295f685dd2bcfacb922f
 //https://countryflagsapi.com/png/br para as bandeirasconst apiKey = "";
+
+const apiKey = "57ca3a94d4be295f685dd2bcfacb922f";
 const apiCountryURL = "https://countryflagsapi.com/png/";
 const apiUnsplash = "https://source.unsplash.com/1600x900/?";
 
