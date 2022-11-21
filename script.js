@@ -1,10 +1,1 @@
-#contReg div { 
-    width: 30px; height: 30px;
-    margin: 2px;
-
-
-    float: left;
-    text-align: center;
-    padding-top:5px ;
-    box-sizing: border-box0;
-}
+//57ca3a94d4be295f685dd2bcfacb922f
