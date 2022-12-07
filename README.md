@@ -10,6 +10,8 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 
 Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
 
+<img src=https://im3.ezgif.com/tmp/ezgif-3-b1f0570961.gif""   >
+
 
 ## 🛠️ Construído com
 
