@@ -6,11 +6,10 @@ para acessar o projeto [Link](https://caiomafia.github.io/Clima-Api/)
 
 ## 🚀 Começando
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+![Clima agora - Google Chrome 2022-12-06 20-58-36](https://user-images.githubusercontent.com/91575842/206326017-eef36818-a3d9-491c-b851-ce358208df81.gif)
 
-Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
 
-<img src=https://im3.ezgif.com/tmp/ezgif-3-b1f0570961.gif""   >
+![Clima agora - Google Chrome 2022-12-06 20-57-54](https://user-images.githubusercontent.com/91575842/206326435-d6d94617-b22d-4834-ad3a-6d79fa0ea2ab.gif)
 
 
 ## 🛠️ Construído com
