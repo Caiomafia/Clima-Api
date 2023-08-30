@@ -18,7 +18,7 @@ para acessar o projeto [Link](https://caiomafia.github.io/Clima-Api/)
 * [Javascript]() - é uma linguagem de programação
 * [CSS]() - é um mecanismo para adicionar estilo a um documento web
 * [HTML]() - é uma linguagem de marcação utilizada na construção de páginas na Web
-* [API](https://openweathermap.org/) - API 
+* [API](https://openweathermap.org/) -  OpenWeather API
 
 
 
